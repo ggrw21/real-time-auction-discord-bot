@@ -51,4 +51,4 @@ emojis = {
 ![Bid Example](assets/bid.png)
 
 ### Available Commands
-![Commands](commands/bid.png)
+![Commands](assets/commands.png)
