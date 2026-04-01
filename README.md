@@ -10,6 +10,7 @@ A real-time auction system built as a Discord bot where users can place bids and
 - Multi item auction support
 - Image support for items (based on keywords)
 - Initialises database locally on startup
+- Different channels can have different auctions running simultaneously
 
 ## How It Works
 - Admins start auctions using slash commands, specifying item details and duration
@@ -41,3 +42,13 @@ emojis = {
     "trophy": "🏆"
 }
 ```
+##Demo
+
+### Starting an Auction
+![Start Auction](assets/start-break.png)
+
+### Placing a Bid
+![Bid Example](assets/bid.png)
+
+### Available Commands
+![Commands](commands/bid.png)
