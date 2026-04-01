@@ -128,7 +128,7 @@ async def startBreak(interaction: discord.Interaction, enddatetime: int, breakgo
     conn.commit()
     conn.close()
     message = await getMessage(getAuction(interaction.channel.id))
-    await interaction.response.send_message(message, ephemeral=True)
+    await interaction.response.send_message(message, ephemeral=False)
 
 @bot.tree.command(name="bid", description="Bid on a team.")
 @app_commands.describe(
