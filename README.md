@@ -42,7 +42,7 @@ emojis = {
     "trophy": "🏆"
 }
 ```
-##Demo
+## Demo
 
 ### Starting an Auction
 ![Start Auction](assets/start-break.png)
