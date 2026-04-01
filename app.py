@@ -8,9 +8,40 @@ import sqlite3
 
 bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
 
+def init_db():
+    conn = sqlite3.connect('records.db')
+    cursor = conn.cursor()
+
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS auctions (
+        auctionID INTEGER PRIMARY KEY AUTOINCREMENT,
+        channel INTEGER,
+        breakgoal INTEGER,
+        totalBids INTEGER,
+        enddatetime INTEGER,
+        active INTEGER
+    )
+    """)
+
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS items (
+        itemID INTEGER PRIMARY KEY AUTOINCREMENT,
+        auctionID INTEGER,
+        itemName TEXT,
+        emoji TEXT,
+        highestBid INTEGER DEFAULT 0,
+        highestBidder INTEGER DEFAULT 0,
+        endTime INTEGER
+    )
+    """)
+
+    conn.commit()
+    conn.close()
+
 @bot.event
 async def on_ready():
     print('Bot is ready!')
+    init_db()
     try:
         await bot.change_presence(
         activity=discord.Game(name="Made by daybroken")
